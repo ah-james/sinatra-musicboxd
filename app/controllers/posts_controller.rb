@@ -1,44 +1,37 @@
 class PostsController < ApplicationController
 
-  # GET: /posts
-  get "/posts" do
+  get "/posts" do #index action
     @posts = Post.all
-    erb :"/posts/index.html"
+    erb :"/posts/index"
   end
 
-  # GET: /posts/new
-  get "/posts/new" do
-    erb :"/posts/new.html"
+  get "/posts/new" do # new action
+    erb :"/posts/new"
   end
 
-  # POST: /posts
-  post "/posts" do
+  post "/posts" do # create action
     @post = Post.create(params)
     redirect "/posts/#{@post.id}"
   end
 
-  # GET: /posts/5
-  get "/posts/:id" do
+  get "/posts/:id" do #show action
     @post = Post.find_by_id(params)
-    erb :"/posts/show.html"
+    erb :"/posts/show"
   end
 
-  # GET: /posts/5/edit
-  get "/posts/:id/edit" do
+  get "/posts/:id/edit" do #edit action
     @post = Post.find_by_id(params)
-    erb :"/posts/edit.html"
+    erb :"/posts/edit"
   end
 
-  # PATCH: /posts/5
-  patch "/posts/:id" do
+  patch "/posts/:id" do #update action
     @post = Post.find_by_id(params)
     
     @post.save
     redirect "/posts/:id"
   end
 
-  # DELETE: /posts/5/delete
-  delete "/posts/:id/delete" do
+  delete "/posts/:id/delete" do #delete action
     @post = Post.find_by_id(params)
     @post.delete
     redirect "/posts"
