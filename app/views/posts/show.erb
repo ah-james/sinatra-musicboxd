@@ -1,1 +1,12 @@
-<h1>Show a Post</h1>
+<h1><%= @post.album %></h1>
+<h2><%= @post.artist %></h2>
+<h3><%= @post.score %></h3>
+<h4><%= @post.review %></h4>
+<a href="/posts/<%=@post.id%>/edit">Edit</a>
+
+<form method="post" action="/posts/<%=@post.id%>/delete">
+    <input id="hidden" type="hidden" name='_method' value="DELETE">
+    <input type="submit" value="Delete">
+</form>
+<br>
+<a href="/posts">See All Posts</a>

@@ -1,7 +1,9 @@
 <h1>Welcome, user</h1>
 
-<% Posts.each do |post| %>
+<% @posts.each do |post| %>
     <div>
-        <p><%= post.content %></p>
+        <p><%= post.artist %>: <a href="/posts/<%= post.id %>"><%= post.album %></a></p>
     </div>
 <% end %>
+
+<a href="/posts/new">Create New Post</a>

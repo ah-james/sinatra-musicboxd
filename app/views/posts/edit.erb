@@ -1,11 +1,11 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit your post</h1>
 
 
-<form method="POST" action="/posts/#{@post.id}">
+<form method="POST" action="/posts/<%= @post.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-    <p>Artist: <insert type="text" name="artist"></p>
-    <p>Album: <insert type="text" name="album"></p>
-    <p>Score: <insert type="number" name="score"></p>
-    <p>Review: <insert type="text" name="review"></p>
-    <p><insert type='submit' name="submit"></p>
+    <p>Album: <input type="text" name="album" value="<%= @post.album %>"></p>
+    <p>Artist: <input type="text" name="artist" value="<%= @post.artist %>"></p>   
+    <p>Score: <input type="number" name="score" value="<%= @post.score %>"></p>
+    <p>Review: <input type="text" name="review" value="<%= @post.review %>"></p>
+    <p><input type='submit' value="   Edit   "></p>
 </form>
