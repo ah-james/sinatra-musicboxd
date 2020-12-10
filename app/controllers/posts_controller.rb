@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   post "/posts" do # create action
-    @post = Post.create(:artist => params[:artist], :album => params[:album], :score => params[:score], :review => params[:review])
+    @post = Post.create(:artist => params[:artist], :album => params[:album], :score => params[:score])
     redirect "/posts/#{@post.id}"
   end
 
