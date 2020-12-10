@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.username %></h1>
+<h1>Welcome, <%= current_user.username %></h1>
 
 <% @posts.each do |post| %>
     <div>
@@ -7,3 +7,6 @@
 <% end %>
 
 <a href="/posts/new">Create New Post</a>
+<br>
+<br>
+<a href="/logout">Log Out</a>
