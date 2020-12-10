@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
     @user.save
     session[:id] = @user.id
+    binding.pry
     redirect '/posts'
   end
 
@@ -16,8 +17,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    user = User.find_by(username: params["username"])
-    session[:id] = user.id
+    @user = User.find_by(username: params["username"])
+    session[:id] = @user.id
     redirect "/posts"
   end
 end
