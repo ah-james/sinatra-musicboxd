@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   post "/posts" do # create action
+    login_check
     @post = Post.new(:artist => params[:artist], :album => params[:album], :score => params[:score])
     @post.user_id = session[:user_id]
     @post.save
@@ -22,11 +23,13 @@ class PostsController < ApplicationController
   end
 
   get "/posts/:id/edit" do #edit action
+    login_check
     @post = Post.find_by_id(params[:id])
     erb :"/posts/edit"
   end
 
   patch "/posts/:id" do #update action
+    login_check
     @post = Post.find_by_id(params[:id])
     @post.album = params[:album]
     @post.artist = params[:artist]
@@ -37,8 +40,17 @@ class PostsController < ApplicationController
   end
 
   delete "/posts/:id/delete" do #delete action
+    login_check
     @post = Post.find_by_id(params[:id])
     @post.delete
     redirect "/posts"
+  end
+
+  private
+
+  def login_check
+    if !logged_in?
+      redirect '/login'
+    end
   end
 end
