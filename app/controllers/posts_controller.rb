@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   get "/posts" do #index action
+    @user = User.find_by_id(session[:user_id])
     @posts = Post.all
     erb :"/posts/index"
   end

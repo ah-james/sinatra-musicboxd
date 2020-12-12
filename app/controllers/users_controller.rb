@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  get "/users" do #index action
+    @users = User.all
+    erb :"/users/index"
+  end
+
+  get "/users/:id" do #show action
+    @user = User.find_by_id(params[:id])
+    @posts = Post.all
+    erb :"/users/show"
+  end
+
   get '/signup' do
     if !logged_in?
       erb :'users/signup'

@@ -1,0 +1,9 @@
+<h1><%= @user.username %>'s Posts</h1>
+<br>
+<% @posts.each do |post| %>
+    <% if @user.id == post.user_id %>
+    <div>
+        <p><%= post.artist %>: <a href="/posts/<%= post.id %>"><%= post.album %></a></p>
+    </div>
+    <% end %>
+<% end %>

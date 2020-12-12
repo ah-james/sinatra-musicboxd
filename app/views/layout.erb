@@ -18,6 +18,12 @@
 
         <%= yield %>
 
+        <% if logged_in? %>
+        <br><br>
+        <a href="/posts">Home</a>
+        <a href="/logout">Log Out</a>
+        <% end %>
+
       <footer class="branding">
         <small>&copy; 2020 <strong>Musicboxd</strong></small>
       </footer>
