@@ -1,13 +1,15 @@
-<h1>Welcome, <%= current_user.username %></h1>
-<br>
-<% @posts.each do |post| %>
-    <% if @user.id == post.user_id %>
-    <div>
-        <p><%= post.artist %>: <a href="/posts/<%= post.id %>"><%= post.album %></a></p>
-    </div>
+<div id="homepage" style="text-align: center;">
+    <h1>Welcome, <%= current_user.username %></h1>
+    <br>
+    <% @posts.each do |post| %>
+        <% if @user.id == post.user_id %>
+        <div>
+            <p><%= post.artist %>: <a href="/posts/<%= post.id %>"><%= post.album %></a></p>
+        </div>
+        <% end %>
     <% end %>
-<% end %>
-<br>
-<a href="/posts/new">Create New Post</a>
-<br><br>
-<a href="/users">See All Users</a>
+    <a href="/posts/new">Create New Post</a>
+    <br><br><br>
+    <a href="/users">See All Users</a>
+    <br><br><br>
+</div>

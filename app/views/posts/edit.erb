@@ -6,6 +6,8 @@
     <p>Album: <input type="text" name="album" value="<%= @post.album %>"></p>
     <p>Artist: <input type="text" name="artist" value="<%= @post.artist %>"></p>   
     <p>Score: <input type="number" name="score" value="<%= @post.score %>"></p>
-    <p>Review: <input type="text" name="review" value="<%= @post.review %>"></p>
+    <p>Review: </p>
+    <textarea rows="10" cols="50" name="review"><%= @post.review %></textarea>
+    <br><br>
     <p><input type='submit' value="   Edit   "></p>
 </form>

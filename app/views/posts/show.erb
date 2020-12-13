@@ -1,14 +1,16 @@
 <h1><%= @post.artist %> - <%= @post.album %></h1>
+<h3><%= @post.score %></h3
 <br>
-<h3><%= @post.score %></h3>
-<h4><%= @post.review %></h4>
+<p><%= @post.review %></p>
 
 <% if session[:user_id] == @post.user_id %>
-    <a href="/posts/<%=@post.id%>/edit">Edit</a>
-
+    <form method="get" action="/posts/<%=@post.id%>/edit">
+        <input type="submit" value="Edit">
+    </form>
+    <br>
     <form method="post" action="/posts/<%=@post.id%>/delete">
         <input id="hidden" type="hidden" name='_method' value="DELETE">
         <input type="submit" value="Delete">
     </form>
 <% end %>
-<br>
+<br><br>

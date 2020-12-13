@@ -14,17 +14,23 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div style="text-align: center;" class="wrapper">
 
         <%= yield %>
+        <nav>
+          <% if logged_in? %>
+            <br>
+            <form method="get" action="/posts">
+              <input type="submit" value="Home">
+            </form>
+            <br>
+            <form method="get" action="/logout">
+              <input type="submit" value="Log Out">
+            </form>
+          <% end %>
+        </nav>
 
-        <% if logged_in? %>
-        <br><br>
-        <a href="/posts">Home</a>
-        <a href="/logout">Log Out</a>
-        <% end %>
-
-      <footer class="branding">
+      <footer style="text-align: left;" class="branding">
         <small>&copy; 2020 <strong>Musicboxd</strong></small>
       </footer>
     </div>
