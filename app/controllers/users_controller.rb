@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:error] = "ERROR: Please fill out all fields in the form."
       redirect '/signup'
     else
       user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -40,7 +41,8 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect "/posts"
     else
-      redirect '/signup'
+      flash[:signup] = "We can't find you in our database, please try again or sign up for a new account!"
+      redirect '/login'
     end
   end
 

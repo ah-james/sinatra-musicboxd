@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   post "/posts" do # create action
     login_check
     if params[:artist] == "" || params[:album] == ""
+      flash[:missing] = "Please fill out the Artist and Album fields, you can come back later for the Score and Review!"
       redirect '/posts/new'
     else
       @post = Post.new(:artist => params[:artist], :album => params[:album], :score => params[:score], :review => params[:review])
