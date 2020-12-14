@@ -12,10 +12,14 @@ class PostsController < ApplicationController
 
   post "/posts" do # create action
     login_check
-    @post = Post.new(:artist => params[:artist], :album => params[:album], :score => params[:score], :review => params[:review])
-    @post.user_id = session[:user_id]
-    @post.save
-    redirect "/posts/#{@post.id}"
+    if params[:artist] == "" || params[:album] == ""
+      redirect '/posts/new'
+    else
+      @post = Post.new(:artist => params[:artist], :album => params[:album], :score => params[:score], :review => params[:review])
+      @post.user_id = session[:user_id]
+      @post.save
+      redirect "/posts/#{@post.id}"
+    end
   end
 
   get "/posts/:id" do #show action
