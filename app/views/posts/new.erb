@@ -7,7 +7,7 @@
 <form method="POST" action="/posts">
     <p>Artist: <input type="text" name="artist"></p>
     <p>Album: <input type="text" name="album"></p>
-    <p>Score: <input type="number" name="score"></p>
+    <p>Score: <input type="number" min="0" max='10' name="score"></p>
     <p>Review: </p>
     <textarea rows="10" cols="50" name="review"></textarea>
     <p><input type='submit' name="submit"></p>

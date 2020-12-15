@@ -1,6 +1,9 @@
 <div id='flash' class='error'>
   <%= flash[:error] %>
 </div>
+<div id='flash' class='login'>
+  <%= flash[:login] %>
+</div>
 <div id="create" style="text-align: center;">
     <h1>Create an Account</h1>
     <br>
@@ -9,5 +12,9 @@
         <p>Email: <input type="text" name="email"></p>
         <p>Password: <input type="password" name="password"></p>
         <input type="submit" value=" Create Account ">
+    </form>
+    <br>
+    <form method="get" action="/login">
+      <input type="submit" value="Log In Instead">
     </form>
 </div>

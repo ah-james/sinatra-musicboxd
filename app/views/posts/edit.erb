@@ -5,7 +5,7 @@
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <p>Album: <input type="text" name="album" value="<%= @post.album %>"></p>
     <p>Artist: <input type="text" name="artist" value="<%= @post.artist %>"></p>   
-    <p>Score: <input type="number" name="score" value="<%= @post.score %>"></p>
+    <p>Score: <input type="number" name="score" min='0' max='10' value="<%= @post.score %>"></p>
     <p>Review: </p>
     <textarea rows="10" cols="50" name="review"><%= @post.review %></textarea>
     <br><br>

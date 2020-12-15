@@ -23,6 +23,9 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
       flash[:error] = "ERROR: Please fill out all fields in the form."
       redirect '/signup'
+    elsif User.find_by_email(params[:email])
+      flash[:login] = "There is already an account associated with that email, please Log In to your account!"
+      redirect '/signup'
     else
       user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
       user.save
