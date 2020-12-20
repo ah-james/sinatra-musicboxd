@@ -51,12 +51,4 @@ class PostsController < ApplicationController
     @post.delete
     redirect "/posts"
   end
-
-  private
-
-  def login_check
-    if !logged_in?
-      redirect '/login'
-    end
-  end
 end
